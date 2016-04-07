@@ -21,8 +21,8 @@
     <?php } ?>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><strong>Module Version:</strong> v2.1<br />
-			          			<strong>Release Date:</strong> xxth Oct xxxx </h3>
+    <h3 class="panel-title"><strong>Module Version:</strong> v2.2<br />
+			          			<strong>Release Date:</strong> 6th April 2016 </h3>
   </div>
   <div class="panel-body">
    
@@ -67,15 +67,13 @@
     <div class="form-group">
             <label class="col-sm-2 control-label" for="input-entry_type"><?php echo $entry_type; ?></label>
         <div class="col-sm-10">
-            <select name="paymentsense_direct_type" id="input-order-type" class="form-control">
-            <?php if ($paymentsense_direct_type) { ?>
+            <select name="paymentsense_direct_type" id="input-order-type" class="form-control">				
             <option value="SALE"<?php if ($paymentsense_direct_type == "SALE") { ?> selected="selected"<?php } ?>><?php echo $text_sale; ?></option>
-            <option value="PREAUTH"<?php if ($paymentsense_direct_type == "PREAUTH") { ?> selected="selected"<?php } ?>><?php echo $text_preauth; ?></option>
-            <?php } ?>
+            <option value="PREAUTH"<?php if ($paymentsense_direct_type == "PREAUTH") { ?> selected="selected"<?php } ?>><?php echo $text_preauth; ?></option>            
           </select>  
         </div>
     </div>
-    
+	
     <div class="form-group">
             <label class="col-sm-2 control-label" for="input-order-status"><?php echo $entry_order_status; ?></label>
             <div class="col-sm-10">

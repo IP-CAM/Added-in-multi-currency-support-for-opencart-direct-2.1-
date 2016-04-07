@@ -58,7 +58,7 @@ class Controllerpaymentpaymentsensedirect extends Controller
 		} 
 		else 
 		{
-			return $this->load->view('default/template/payment/paymentsense_direct.tpl', $data);
+			return $this->load->view('payment/paymentsense_direct.tpl', $data);
 		}	
 	}
 	

@@ -295,7 +295,7 @@ class Controllerpaymentpaymentsensedirect extends Controller
 			);
 		
 		$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
-		
+
         $data = array();
 			
 		if (in_array($order_info['payment_country'], array_keys($country_codes))) 
@@ -306,14 +306,33 @@ class Controllerpaymentpaymentsensedirect extends Controller
 		{
 			$order_country = '';
 		}
-		
+
+		$suppcurr = array(
+			'USD' => '840',
+			'EUR' => '978',
+			'GBP' => '826'
+		);
+
+
+		if(!empty($this->session->data['currency']))
+		{
+			$currency = $suppcurr[$this->session->data['currency']];
+		}
+		else
+		{
+			$currency = '826';
+		}
+
 		$data['OrderID'] = $this->session->data['order_id'];
 		
 		$data['MerchantID'] = $this->config->get('paymentsense_direct_mid');
 		$data['MerchantPassword'] = $this->config->get('paymentsense_direct_pass');
 		
-		$data['Amount'] = round($order_info['total'],2)*100;
-		$data['Currency'] = 826;
+		$data['Amount'] = ($this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false))*100;
+
+		//die($data['amount'] = $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false));
+
+		$data['Currency'] = $currency;
 		
 		$data['TransactionType'] = $this->config->get('paymentsense_direct_type');		
 		
